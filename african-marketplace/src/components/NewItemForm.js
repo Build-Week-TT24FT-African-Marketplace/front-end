@@ -2,15 +2,15 @@ import React from 'react'
 
 export default function ItemForm(props){
 
-const {values, onChange, onSubmit, disabled} = props
+const {values, change, submit, disabled} = props
 
 const onChange = (evt) => {
-    const { name, value} = evt.target;
+    const {name, value} = evt.target;
     change(name, value);
   };
 const onSubmit = (evt) => {
     evt.preventDefault()
-    onSubmit();
+    submit();
 }
 return (
 <div>
@@ -28,12 +28,12 @@ return (
 
         <label>
             Price
-        <input name="Price" value={values.price} type="number" step="0.01" onChange={onChange}> </input>
+        <input name="price" value={values.price} type="number" step="0.01" onChange={onChange}> </input>
         </label>
 
         <label>
             Location
-        <select onChange={} value={values.location} name="location">
+        <select onChange={onChange} value={values.location} name="location">
             <option value="">- Select an location -</option>
             <option value="1"></option>
             <option value="2"></option>
