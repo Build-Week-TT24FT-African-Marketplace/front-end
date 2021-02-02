@@ -6,9 +6,9 @@ import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
-import { reducer } from './reducers';
+import { combineReducers } from './reducers/combineReducers';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(combineReducers, applyMiddleware(thunk));
 
 const rootElement =  document.getElementById('root');
 
