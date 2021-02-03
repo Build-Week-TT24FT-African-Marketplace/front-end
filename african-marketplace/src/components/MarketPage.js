@@ -44,16 +44,17 @@ const MarketPage = (props) => {
 //     return props.fetchProjects();
 //   }, []);
 
+
   return (
  
 <div>
     Display Item List Here.
     <div>
-        <Switch>
+        {/* <Switch> */}
         {/* <PrivateRouteList path="/market/user" uList={UserItemList} /> */}
         {/* <Route path="/market" ItemList={ItemList} /> */}
-        <ItemList/>
-        </Switch>
+        <UserItemList />
+        {/* </Switch> */}
     </div>
 </div>
 

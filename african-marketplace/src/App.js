@@ -13,15 +13,14 @@ function App() {
 
   return (
 
-    <div className="App">
-    
+  <div className="App">
     <Router>
     <Nav/>
     <Switch>
-      {/* <PrivateRoute path="/friends" component={FriendsPage} /> */}
-      <Route path="/" component={MarketPage} />
+      
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={NewUserForm} />
+      <Route path="/" component={MarketPage} />
     </Switch>
     </Router>
   </div>
