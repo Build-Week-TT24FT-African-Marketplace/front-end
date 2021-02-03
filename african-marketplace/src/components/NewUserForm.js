@@ -18,16 +18,16 @@ return(
        <form onSubmit={onSubmit}>
            <label>
                Name
-           <input name="username" value={values.username} type="text" onChange={onChange}> </input>
+           <input name="user_first_name" value={values.username} type="text" onChange={onChange}> </input>
            </label>
 
            <label>
                Email
-           <input name="email" value={values.email} type="email" onChange={onChange}> </input>
+           <input name="user_email" value={values.email} type="email" onChange={onChange}> </input>
            </label>
            <label>
                Password
-           <input name="password" value={values.password} type="text" onChange={onChange}> </input>
+           <input name="user_password" value={values.password} type="text" onChange={onChange}> </input>
            </label>
 
         {/*radio for buyer/seller select */}

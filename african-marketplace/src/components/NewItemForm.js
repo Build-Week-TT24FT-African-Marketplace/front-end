@@ -18,22 +18,22 @@ return (
 
         <label>
             Item Name
-        <input name="itemName" value={values.name} type="text" onChange={onChange}> </input>
+        <input name="listing_name" value={values.name} type="text" onChange={onChange}> </input>
         </label>
 
         <label>
             Description
-        <input name="description" value={values.description} type="text" onChange={onChange}>  </input>
+        <input name="listing_description" value={values.description} type="text" onChange={onChange}>  </input>
         </label>
 
         <label>
             Price
-        <input name="price" value={values.price} type="number" step="0.01" onChange={onChange}> </input>
+        <input name="listing_price" value={values.price} type="number" step="0.01" onChange={onChange}> </input>
         </label>
 
         <label>
             Location
-        <select onChange={onChange} value={values.location} name="location">
+        <select onChange={onChange} value={values.location} name="listing_location">
             <option value="">- Select an location -</option>
             <option value="1"></option>
             <option value="2"></option>
