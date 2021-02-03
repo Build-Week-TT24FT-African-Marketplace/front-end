@@ -1,5 +1,7 @@
 import React from 'react'
-// import styled from "styled-components"
+
+import styled from "styled-components"
+
 
 
 export default function ItemCard(props){
@@ -8,6 +10,7 @@ export default function ItemCard(props){
 
 
     return (
+
 
         <div>***ITEMCARD*****
             <div>

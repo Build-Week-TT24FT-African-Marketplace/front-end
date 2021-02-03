@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 // import { initialItem } from '../reducers/itemStateReducer';
 import addItems from '../actions/itemStateAction'
@@ -31,6 +32,7 @@ const onSubmit = (evt) => {
 return (
 <div>
     ASDFITEM
+
     <form onSubmit={onSubmit} >
 
         <label>
@@ -52,6 +54,7 @@ return (
             Location
         <select onChange={onChange} value={values.location} name="listing_location">
             <option value="">- Select an location -</option>
+
             <option value="1">Kenya</option>
             <option value="2">Rwanda</option>
             <option value="3">South Africa</option>
@@ -61,10 +64,13 @@ return (
           </select>
         </label>
         <button >Submit</button>
+
     </form>
 
 </div>)
 }
 
+
 // disabled={disabled}
 // , change, submit, disabled
+

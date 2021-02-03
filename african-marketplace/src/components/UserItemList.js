@@ -1,4 +1,4 @@
-  
+ 
 import React, { useEffect, useState } from "react";
 import ItemCard from './ItemCard'
 import {fetchItems} from  '../actions/itemStateAction'
@@ -22,6 +22,7 @@ useEffect(() => {
   
 
   return (
+
     <div>***UItemList***
       {/* { (role === 2 ) ? `${<button> Add Item </button>}` : null}  */}
     {/* {Add item button is shown based on role 1 = seller 2 = buyer role is set to 1 by default} */}
@@ -31,6 +32,7 @@ useEffect(() => {
           <ItemCard item={item} role={role}/>)
         })}
       </div>
+
     </div>
   );
 };

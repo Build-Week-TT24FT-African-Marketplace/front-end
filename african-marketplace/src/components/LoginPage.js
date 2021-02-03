@@ -6,6 +6,7 @@ export default function LoginPage(props){
     const {submit, change, values, disabled} = props;
 
     const onChange = (evt) => {
+
     //    const {name, value} = evt.target;
     //     change(name, value);
     }
@@ -17,6 +18,7 @@ export default function LoginPage(props){
         <div>
             ASDFLogin
             {/* <form onSubmit={onSubmit}>
+
 
                 <label>Email
                     <input
@@ -37,6 +39,7 @@ export default function LoginPage(props){
 
                 <button disabled={disabled}>Login</button>
             </form> */}
+
         </div>
     )
 }

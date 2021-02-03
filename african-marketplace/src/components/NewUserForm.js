@@ -29,6 +29,7 @@ return(
            <label>
                Password
            <input name="user_password" value={values.password} type="text" onChange={onChange}> </input>
+
            </label> */}
 
         {/*radio for buyer/seller select */}
@@ -48,12 +49,16 @@ return(
             type="radio"
             name="role"
             value={2}
+
             checked={values.role === 2} 
+
             onChange={onChange}
           />
         </label>
            <button disabled={disabled}>Create new account</button>
+
            </form>  */}
+
 
     </div>
 )
