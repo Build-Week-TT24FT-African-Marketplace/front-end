@@ -6,16 +6,19 @@ export default function LoginPage(props){
     const {submit, change, values, disabled} = props;
 
     const onChange = (evt) => {
-       const {name, value} = evt.target;
-        change(name, value);
+
+    //    const {name, value} = evt.target;
+    //     change(name, value);
     }
     const onSubmit = (evt) => {
-        evt.preventDefault;
-        submit();
+        // evt.preventDefault;
+        // submit();
     }
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            ASDFLogin
+            {/* <form onSubmit={onSubmit}>
+
 
                 <label>Email
                     <input
@@ -35,7 +38,8 @@ export default function LoginPage(props){
                 </label>
 
                 <button disabled={disabled}>Login</button>
-            </form>
+            </form> */}
+
         </div>
     )
 }

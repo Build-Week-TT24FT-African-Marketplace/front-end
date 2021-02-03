@@ -1,19 +1,38 @@
-import React from 'react'
+
+import React, { useState } from 'react'
+// import { initialItem } from '../reducers/itemStateReducer';
+import addItems from '../actions/itemStateAction'
+
+
+export const initialValues = {
+    listing_name: '',
+    listing_description: '',
+    listing_price: '',
+    marketplace_id: '',
+    user_id: ''
+}
 
 export default function ItemForm(props){
 
-const {values, change, submit, disabled} = props
+const {values} = props
+
+const [newitem, setNewItem] = useState(initialValues);
+
 
 const onChange = (evt) => {
     const {name, value} = evt.target;
-    change(name, value);
+    setNewItem({...newitem, [name]: value});
   };
+
 const onSubmit = (evt) => {
     evt.preventDefault()
-    submit();
+    addItems(newitem);
 }
+
 return (
 <div>
+    ASDFITEM
+
     <form onSubmit={onSubmit} >
 
         <label>
@@ -35,14 +54,23 @@ return (
             Location
         <select onChange={onChange} value={values.location} name="listing_location">
             <option value="">- Select an location -</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
+
+            <option value="1">Kenya</option>
+            <option value="2">Rwanda</option>
+            <option value="3">South Africa</option>
+            <option value="4">Ghana</option>
+            <option value="5">Tanzania</option>
+            <option value="6">Senegal</option>
           </select>
         </label>
-        <button disabled={disabled}> Submit</button>
+        <button >Submit</button>
+
     </form>
 
 </div>)
 }
+
+
+// disabled={disabled}
+// , change, submit, disabled
+

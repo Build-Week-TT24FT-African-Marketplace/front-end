@@ -16,21 +16,22 @@ export const API_DELETE_START = 'API__DELETE_START';
 export const API_DELETE_SUCCESS = 'API__DELETE_SUCCESS';
 export const API_DELETE_FAILURE= 'API_DELETE_FAILURE';
 
-//render items on Marketplace
-export const getItems = () => {
+
+//render items on Marketplace 
+export const fetchItems = () => {
     return (dispatch) => {
         dispatch({type: API_GET_START});
         axios
-        .get('')
+        .get('https://african-marketplace-backend-24.herokuapp.com/api/listings')
         .then(res => {
             dispatch({type: API_GET_SUCCESS,payload:res.data})
         })
         .catch(err => {
             dispatch({type: API_GET_FAILURE,
-                payload:err.message})
+                payload: err.message}) 
         });
     };
-},
+}
 
 //add items to Marketplace Array
 //need axios with auth?

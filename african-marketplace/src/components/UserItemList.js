@@ -1,24 +1,51 @@
-import React from "react";
+ 
+import React, { useEffect, useState } from "react";
 import ItemCard from './ItemCard'
-const UserItemList = (props) => {
+import {fetchItems} from  '../actions/itemStateAction'
+import initialItem from '../reducers/combineReducers';
+// import { connect } from 'react-redux'
 
-  const {item_list, role} = props;
+const UserItemList = (props) => {
+const { role } = props;
+const [itemArray, setItemArray] = useState([]);
+
+
+useEffect(() => {
+  fetchItems();
+  setItemArray(initialItem)
+}, []);
+
+  // conssetItemArray()t {itemArr, role} = props;
   //add item button -> displays add item component, HERE ON THIS PAGE!
   //edit button -> displays edit item component, ON ITEM CARD - with turnary!
   //delete button -> deletes item component, ON ITEM CARD!
   
 
   return (
-    <div>
+
+    <div>***UItemList***
+      {/* { (role === 2 ) ? `${<button> Add Item </button>}` : null}  */}
+    {/* {Add item button is shown based on role 1 = seller 2 = buyer role is set to 1 by default} */}
       <div>
-        {item_list.map((item) => {
-          <ItemCard item={item} role={buyer}/>
+        {itemArray.map((item) => {
+          return(
+          <ItemCard item={item} role={role}/>)
         })}
       </div>
-      {/* {Add item button is shown based on role 1 = seller 2 = buyer role is set to 1 by default} */}
-     { (role == 2 ) ? `${<button> Add Item </button>}` : null}
+
     </div>
   );
 };
 
+
+
+// // export default UserItemList;
+// const mapStateToProps = state => {
+//   return {
+//       error: state.errorText
+//   }
+// }
+
 export default UserItemList;
+
+// connect(mapStateToProps, {role}
