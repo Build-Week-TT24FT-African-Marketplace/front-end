@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { login } from '../actions/loginStateAction';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import styled from 'styled-components';
 
 const userData = {
     user_email: '',
@@ -31,8 +31,9 @@ const LoginPage = (props) => {
     return (
         <div>
             ASDFLogin
-            <form onSubmit={onSubmit}>
-                <label>Email
+            <StyledForm onSubmit={onSubmit}>
+                <label>
+                    <div>Email</div>
                     <input
                     name="user_email"
                     value={userLogin.user_email}
@@ -40,7 +41,9 @@ const LoginPage = (props) => {
                     onChange={onChange}
                     ></input>
                 </label>
-                <label>Password
+                <label>
+                    <div>
+                    Password   </div>
                     <input
                     name="user_password"
                     value={userLogin.user_password}
@@ -50,12 +53,20 @@ const LoginPage = (props) => {
                 </label>
 
                 <button>Login</button>
-            </form>
+            </StyledForm>
 
         </div>
     )
 }
-
+const StyledForm = styled.form` 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+  button{
+      margin:1em;
+  }
+`
 const mapStateToProps = state => {
     return {
         error: state.errorText

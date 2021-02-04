@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { addUser } from '../actions/loginStateAction';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import styled from 'styled-components';
 const newUser = {
     user_first_name: '',
     user_email: '',
@@ -28,7 +28,7 @@ const NewUserForm = (props) => {
   return(
       <div>
           ASDFUser
-        <form onSubmit={onSubmit}>
+        <StyledForm onSubmit={onSubmit}>
             <label>
                 Name
             <input name="user_first_name" value={newSignup.username} type="text" onChange={onChange}
@@ -70,11 +70,19 @@ const NewUserForm = (props) => {
             </label>
             <button type='submit'>Create new account
             </button>
-            </form> 
+            </StyledForm> 
         </div>
   );
 };
-
+const StyledForm = styled.form` 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+  button{
+      margin:1em;
+  }
+`
 const mapStateToProps = state => {
     return {
         error: state.errorText
