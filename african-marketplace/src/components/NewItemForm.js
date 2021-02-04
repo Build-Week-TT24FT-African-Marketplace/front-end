@@ -8,11 +8,10 @@ export const initialValues = {
     listing_name: '',
     listing_description: '',
     listing_price: '',
-    marketplace_id: '',
-    user_id: ''
+    marketplace_id: ''
 }
 
-const ItemForm = (addItems) => {
+const ItemForm = (props) => {
 
 const [newItem, setNewItem] = useState(initialValues);
 const { push } = useHistory();
@@ -24,7 +23,16 @@ const onChange = (evt) => {
 
 const onSubmit = (evt) => {
     evt.preventDefault()
-    addItems(newItem);
+    const itemToAdd = {
+        listing_name: newItem.listing_name,
+        listing_description: newItem.listing_description,
+        listing_price: parseInt(newItem.listing_price),
+        marketplace_id: parseInt(newItem.marketplace_id),
+        user_id: parseInt(localStorage.getItem('user_id'))
+    }
+    console.log('newitem**', itemToAdd);
+    props.addItems(itemToAdd);
+    
     // push('/')
 }
 
@@ -46,13 +54,13 @@ return (
 
             <label>
                 Price
-            <input name="listing_price" value={newItem.price} type="number" step="0.01" onChange={onChange} placeholder='Item Price' 
+            <input name="listing_price" value={newItem.price} type="number" step="0" onChange={onChange} placeholder='Item Price' 
             />
             </label>
 
             <label>
                 Market Location
-            <select onChange={onChange} value={newItem.location} name="listing_location">
+            <select onChange={onChange} value={newItem.location} name="marketplace_id">
                 <option value="">- Select a location -</option>
                 <option value="1">Kenya</option>
                 <option value="2">Rwanda</option>
@@ -62,7 +70,7 @@ return (
                 <option value="6">Senegal</option>
             </select>
             </label>
-            <button type='submit' >Submit</button>
+            <button type='submit' onClick={onSubmit} >Submit</button>
         </form>
     </div>
     );
