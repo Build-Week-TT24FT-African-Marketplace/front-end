@@ -6,8 +6,8 @@ export const initialItem = {
     errorText: ''
 }
 
-export const itemStatereducer = (state = initialItem, action) => {
-    switch(action.type){
+const itemStatereducer = (state = initialItem, action) => {
+    switch (action.type){
         case (API_GET_START):
             return({
                 ...state, isLoading : true

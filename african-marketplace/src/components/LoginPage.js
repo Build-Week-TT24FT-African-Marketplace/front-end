@@ -1,29 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { login } from '../actions/loginStateAction';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
+
+const userData = {
+    user_email: '',
+    user_password: '',
+}
 
 export default function LoginPage(props){
-
-    const {submit, change, values, disabled} = props;
+    const [userLogin, setUserLogin] = useState(userData);
+    const dispatch = useDispatch();
+    const {disabled} = props;
+    const { push } = useHistory();
 
     const onChange = (evt) => {
+        const {name, value} = evt.target;
+        setUserLogin({...userLogin, [name]: value});
+    };
 
-    //    const {name, value} = evt.target;
-    //     change(name, value);
-    }
     const onSubmit = (evt) => {
-        // evt.preventDefault;
-        // submit();
+        evt.preventDefault();
+        dispatch(login(userLogin));
+        push('/')
     }
+
     return (
         <div>
             ASDFLogin
-            {/* <form onSubmit={onSubmit}>
-
-
+            <form onSubmit={onSubmit}>
                 <label>Email
                     <input
                     name="email"
-                    value={values.email}
+                    value={userLogin.email}
                     type="email"
                     onChange={onChange}
                     ></input>
@@ -31,14 +41,14 @@ export default function LoginPage(props){
                 <label>Password
                     <input
                     name="password"
-                    value={values.password}
+                    value={userLogin.password}
                     type="text"
                     onChange={onChange}
                     ></input>
                 </label>
 
                 <button disabled={disabled}>Login</button>
-            </form> */}
+            </form>
 
         </div>
     )
