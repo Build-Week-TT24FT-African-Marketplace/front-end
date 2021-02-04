@@ -13,7 +13,7 @@ const ItemCard = ({ listing_name, listing_description, listing_price, }) => {
                 {listing_description}
             </div>
             <div>
-                ${listing_price}
+                {listing_price}
             </div>
             {/* <div>
                 {listing_location}

@@ -11,14 +11,19 @@ export const USER_FAILURE = 'USER_FAILURE';
 export const login = (userData) => {
     return (dispatch) => {
         dispatch({type: LOGIN_START});
+        console.log(userData);
         axios
-            .post('https://african-marketplace-backend-24.herokuapp.com/api/auth/register/', userData)
+            .post('https://african-marketplace-backend-24.herokuapp.com/api/auth/login/', userData)
             .then(res => {
                 console.log(res.data, 'user logged')
-                dispatch({type: LOGIN_SUCCESS, payload: localStorage.setItem('token', res.data)})
+                localStorage.setItem('role', res.data.role)
+                dispatch({type: LOGIN_SUCCESS, payload: localStorage.setItem('token', res.data.token)})
+                console.log(res.data.token);
             })
             .catch(err => {
-                dispatch({type: LOGIN_FAILURE, payload:err.message})
+                console.log('ERR LOG****', err);
+                dispatch({type: LOGIN_FAILURE, payload:err})
+                
             }); 
     };
 };

@@ -9,7 +9,7 @@ const userData = {
     user_password: '',
 }
 
-const LoginPage = (login) => {
+const LoginPage = (props) => {
     const [userLogin, setUserLogin] = useState(userData);
     // const {disabled} = props;
     const { push } = useHistory();
@@ -21,8 +21,11 @@ const LoginPage = (login) => {
 
     const onSubmit = (evt) => {
         evt.preventDefault();
-        login(userLogin);
+        console.log(userLogin);
+        props.login(userLogin);
+        
         push('/')
+        
     }
 
     return (
@@ -31,16 +34,16 @@ const LoginPage = (login) => {
             <form onSubmit={onSubmit}>
                 <label>Email
                     <input
-                    name="email"
-                    value={userLogin.email}
+                    name="user_email"
+                    value={userLogin.user_email}
                     type="email"
                     onChange={onChange}
                     ></input>
                 </label>
                 <label>Password
                     <input
-                    name="password"
-                    value={userLogin.password}
+                    name="user_password"
+                    value={userLogin.user_password}
                     type="text"
                     onChange={onChange}
                     ></input>

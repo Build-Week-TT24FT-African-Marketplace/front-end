@@ -9,7 +9,7 @@ const newUser = {
     user_password:'',
     role: null,}
 
-const NewUserForm = (addUser) => {
+const NewUserForm = (props) => {
   const [newSignup, setNewSignup] = useState(newUser)
 //   const {disabled} = props;
   const { push } = useHistory();
@@ -21,7 +21,7 @@ const NewUserForm = (addUser) => {
 
   const onSubmit = (evt) => {
       evt.preventDefault();
-      addUser(newSignup);
+      props.addUser(newSignup);
       push('/login')
   }
 
