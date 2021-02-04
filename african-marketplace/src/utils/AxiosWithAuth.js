@@ -5,9 +5,9 @@ const AxiosWithAuth = () => {
 
   return axios.create({
     headers: {
-      authorization: token,
+      Authorization: token,
     },
-    baseURL: '', // placeholder - edit to include real API URL once backend is built
+    baseURL: 'https://african-marketplace-backend-24.herokuapp.com/api/'
   });
 };
 

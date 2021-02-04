@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { login } from '../actions/loginStateAction';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
@@ -9,10 +9,9 @@ const userData = {
     user_password: '',
 }
 
-export default function LoginPage(props){
+const LoginPage = (login) => {
     const [userLogin, setUserLogin] = useState(userData);
-    const dispatch = useDispatch();
-    const {disabled} = props;
+    // const {disabled} = props;
     const { push } = useHistory();
 
     const onChange = (evt) => {
@@ -22,7 +21,7 @@ export default function LoginPage(props){
 
     const onSubmit = (evt) => {
         evt.preventDefault();
-        dispatch(login(userLogin));
+        login(userLogin);
         push('/')
     }
 
@@ -47,9 +46,17 @@ export default function LoginPage(props){
                     ></input>
                 </label>
 
-                <button disabled={disabled}>Login</button>
+                <button>Login</button>
             </form>
 
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        error: state.errorText
+    }
+}
+
+export default connect(mapStateToProps, {login}) (LoginPage);
