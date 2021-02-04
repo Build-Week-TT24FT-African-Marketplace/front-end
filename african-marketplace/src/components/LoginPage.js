@@ -29,6 +29,7 @@ const LoginPage = (props) => {
     }
 
     return (
+
         <StyledLoginDiv>
             <StyledDiv>
             <div>
@@ -72,6 +73,7 @@ const StyledForm = styled.form`
       margin:1em;
   }
 `
+
 const StyledLoginDiv = styled.div`
  display: flex;
  align-content:center;

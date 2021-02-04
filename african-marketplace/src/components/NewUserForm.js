@@ -26,6 +26,7 @@ const NewUserForm = (props) => {
   }
 
   return(
+
     <StyledLoginDiv>
       <StyledDiv>
 
@@ -33,6 +34,7 @@ const NewUserForm = (props) => {
         <StyledForm onSubmit={onSubmit}>
           <div>Sign Up</div>
         <label>
+
                 Name
             <input name="user_first_name" value={newSignup.username} type="text" onChange={onChange}
             />
@@ -73,12 +75,14 @@ const NewUserForm = (props) => {
             </label>
             <button type='submit'>Create new account
             </button>
+
       
          
           </StyledForm> 
           </StyledDiv>
           </StyledLoginDiv>
            
+
   );
 };
 const StyledForm = styled.form` 
@@ -86,6 +90,7 @@ const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content:space-between;
+
   label{margin: .5em;}
 `
 const StyledLoginDiv = styled.div`
@@ -97,6 +102,7 @@ const StyledLoginDiv = styled.div`
 const StyledDiv = styled.div`
    border: 2px solid grey;
    width:25%;
+
 `
 const mapStateToProps = state => {
     return {
