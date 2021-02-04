@@ -18,10 +18,10 @@ export const API_DELETE_FAILURE= 'API_DELETE_FAILURE';
 
 
 //render items on Marketplace 
-export const fetchItems = () => {
-    return (dispatch) => {
+export const fetchItems = () => (dispatch) => {
         dispatch({type: API_GET_START})
-        .get('https://african-marketplace-backend-24.herokuapp.com/api/listings')
+        AxiosWithAuth()
+        .get('listings')
         .then(res => {
             dispatch({type: API_GET_SUCCESS,payload:res.data})
         })
@@ -29,8 +29,7 @@ export const fetchItems = () => {
             dispatch({type: API_GET_FAILURE,
                 payload: err.message}) 
         });
-    };
-}
+};
 
 //add items to Marketplace Array
 export const addItems = (newItem) => {

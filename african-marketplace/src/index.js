@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-
+import logger from 'redux-logger';
 import './index.css';
 import App from './App';
 import combineReducers from './reducers/combineReducers';
 
-const store = createStore(combineReducers, applyMiddleware(thunk));
+const store = createStore(combineReducers, applyMiddleware(thunk, logger));
 
 const rootElement =  document.getElementById('root');
 
