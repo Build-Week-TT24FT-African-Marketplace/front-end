@@ -29,8 +29,12 @@ const LoginPage = (props) => {
     }
 
     return (
-        <div>
-            ASDFLogin
+
+        <StyledLoginDiv>
+            <StyledDiv>
+            <div>
+            Login
+            </div>
             <StyledForm onSubmit={onSubmit}>
                 <label>
                     <div>Email</div>
@@ -55,7 +59,9 @@ const LoginPage = (props) => {
                 <button>Login</button>
             </StyledForm>
 
-        </div>
+            </StyledDiv>
+           
+        </StyledLoginDiv>
     )
 }
 const StyledForm = styled.form` 
@@ -66,6 +72,17 @@ const StyledForm = styled.form`
   button{
       margin:1em;
   }
+`
+
+const StyledLoginDiv = styled.div`
+ display: flex;
+ align-content:center;
+ justify-content:center;
+ margin-top:3em;
+`
+const StyledDiv = styled.div`
+   border: 2px solid grey;
+   width:25%;
 `
 const mapStateToProps = state => {
     return {
