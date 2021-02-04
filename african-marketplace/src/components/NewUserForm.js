@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { addUser } from '../actions/loginStateAction';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import styled from 'styled-components';
 const newUser = {
     user_first_name: '',
     user_email: '',
@@ -26,10 +26,15 @@ const NewUserForm = (props) => {
   }
 
   return(
-      <div>
-          ASDFUser
-        <form onSubmit={onSubmit}>
-            <label>
+
+    <StyledLoginDiv>
+      <StyledDiv>
+
+     
+        <StyledForm onSubmit={onSubmit}>
+          <div>Sign Up</div>
+        <label>
+
                 Name
             <input name="user_first_name" value={newSignup.username} type="text" onChange={onChange}
             />
@@ -70,11 +75,35 @@ const NewUserForm = (props) => {
             </label>
             <button type='submit'>Create new account
             </button>
-            </form> 
-        </div>
+
+      
+         
+          </StyledForm> 
+          </StyledDiv>
+          </StyledLoginDiv>
+           
+
   );
 };
+const StyledForm = styled.form` 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
 
+  label{margin: .5em;}
+`
+const StyledLoginDiv = styled.div`
+ display: flex;
+ align-content:center;
+ justify-content:center;
+ margin-top:3em;
+`
+const StyledDiv = styled.div`
+   border: 2px solid grey;
+   width:25%;
+
+`
 const mapStateToProps = state => {
     return {
         error: state.errorText
