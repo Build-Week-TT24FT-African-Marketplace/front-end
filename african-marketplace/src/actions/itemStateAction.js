@@ -32,11 +32,10 @@ export const fetchItems = () => (dispatch) => {
 };
 
 //add items to Marketplace Array
-export const addItems = (newItem) => {
-    return (dispatch) => {
+export const addItems = (itemToAdd) => (dispatch) => {
         dispatch({type: API_ADD_START})
         AxiosWithAuth()
-        .post('')
+        .post('listings', itemToAdd)
         .then(res => {
             console.log('addAction', res.data);
             dispatch({type: API_ADD_SUCCESS, payload:res.data});
@@ -44,17 +43,16 @@ export const addItems = (newItem) => {
         .catch(err => {
             console.log('addError', err.message);
             dispatch({type: API_ADD_FAILURE,
-                payload:err.message})
+                payload:err})
         });
-    };
 };
 
+
 //edit item on Marketplace Array
-export const editItems = (item) => {
-    return (dispatch) => {
+export const editItems = (editItem) => (dispatch) => {
         dispatch({type: API_EDIT_START})
         AxiosWithAuth()
-        .put('')
+        .put('listings/:listing_id', editItem)
         .then(res => {
             console.log('editAction', res.data);
             dispatch({type: API_EDIT_SUCCESS, payload:res.data});
@@ -64,15 +62,14 @@ export const editItems = (item) => {
             dispatch({type: API_EDIT_FAILURE,
                 payload:err.message})
         });
-    };
 };
 
+
 //delete item on Marketplace Array
-export const deleteItems = (item) => {
-    return (dispatch) => {
+export const deleteItems = () => (dispatch) => {
         dispatch({type: API_DELETE_START})
         AxiosWithAuth()
-        .delete('')
+        .delete('listings/:listing_id')
         .then(res => {
             console.log('deleteAction', res.data);
             dispatch({type: API_DELETE_SUCCESS, payload:res.data});
@@ -82,5 +79,4 @@ export const deleteItems = (item) => {
             dispatch({type: API_DELETE_FAILURE,
                 payload:err.message})
         });
-    };
 };
