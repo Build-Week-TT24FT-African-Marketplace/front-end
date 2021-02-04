@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { addUser } from '../actions/loginStateAction';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 const newUser = {
     user_first_name: '',
     user_email: '',
     user_password:'',
-    role: '',}
+    role: null,}
 
-export default function NewUserForm(props){
+const NewUserForm = (addUser) => {
   const [newSignup, setNewSignup] = useState(newUser)
-  const dispatch = useDispatch();
-  const {disabled} = props;
+//   const {disabled} = props;
   const { push } = useHistory();
 
   const onChange = (evt) => {
@@ -22,7 +21,7 @@ export default function NewUserForm(props){
 
   const onSubmit = (evt) => {
       evt.preventDefault();
-      dispatch(addUser(newSignup));
+      addUser(newSignup);
       push('/login')
   }
 
@@ -48,31 +47,38 @@ export default function NewUserForm(props){
             />
             </label>
             {/*radio for buyer/seller select */}
-            <label>
+            <label className='radio-btn'>
             Buyer
             <input
               type="radio"
               name="role"
               value={1}
-              checked={newSignup.role === 1}
+            //   checked={newSignup.role === 1}
               onChange={onChange}
             />
             </label>
 
-            <label>
+            <label className='radio-btn'>
             Seller
             <input
               type="radio"
               name="role"
               value={2}
-              checked={newSignup.role === 2} 
+            //   checked={newSignup.role === 2} 
               onChange={onChange}
             />
             </label>
-
-            <button disabled={disabled}>Create new account
+            <button type='submit'>Create new account
             </button>
             </form> 
         </div>
   );
 };
+
+const mapStateToProps = state => {
+    return {
+        error: state.errorText
+    }
+}
+
+export default connect(mapStateToProps, {addUser}) (NewUserForm);

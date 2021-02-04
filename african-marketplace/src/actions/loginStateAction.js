@@ -14,6 +14,7 @@ export const login = (userData) => {
         axios
             .post('https://african-marketplace-backend-24.herokuapp.com/api/auth/register/', userData)
             .then(res => {
+                console.log(res.data, 'user logged')
                 dispatch({type: LOGIN_SUCCESS, payload: localStorage.setItem('token', res.data)})
             })
             .catch(err => {
@@ -28,6 +29,7 @@ export const addUser = (newUser) => {
         axios
             .post('https://african-marketplace-backend-24.herokuapp.com/api/auth/register/', newUser)
             .then(res => {
+                console.log(res.data, 'new user')
                 dispatch({type: USER_SUCCESS, payload:res.data})
             })
             .catch(err => {
