@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
-import { editForm } from './ItemEditForm';
+import EditForm  from './ItemEditForm';
 import { deleteItems } from '../actions/itemStateAction'
 
 const StyledItemCard= styled.div`
@@ -37,18 +37,19 @@ console.log('*****Itemdetails*****', props);
             {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
             { (role === 2 ) ?
                 <div>
-                 `${<button onClick = {() => editForm()}> Edit Item </button>}`</div> : null}
+                 `${<button onClick = {() => EditForm()}> Edit Item </button>}`</div> : null}
             { (role === 2 ) ? 
                 <div>`${<button onClick = {() => deleteItems()}> Delete Item </button>}`</div> : null}
-          </div>
       </StyledItemCard>
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {
         itemState: state.itemState,
         isLoading: state.isLoading,
         error: state.errorText
+    }
+}
   
-  export default connect(mapStateToProps, {editForm})(ItemCard);
+  export default connect(mapStateToProps, {EditForm})(ItemCard);
