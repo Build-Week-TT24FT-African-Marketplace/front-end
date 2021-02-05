@@ -75,7 +75,7 @@ const NewUserForm = (props) => {
             />
             </label>
            </div>
-            <button type='submit'  style={{ fontSize: "1.2rem", color: "#ffb366", backgroundColor:"#7a2828",}} >Create new account
+            <button type='submit'  style={{ fontSize: "1.2rem", color: "#ffb366", backgroundColor:"#7a2828",}} >Create Account
             </button>
           </StyledForm> 
           </StyledDiv>
