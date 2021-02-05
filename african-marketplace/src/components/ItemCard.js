@@ -59,7 +59,7 @@ console.log('*****Itemdetails*****', props);
                 {props.item.listing_description}
             </div>
             <div>
-                {props.item.listing_price}
+                ${props.item.listing_price}.00
             </div>
             <div>
                 {marketName()}
