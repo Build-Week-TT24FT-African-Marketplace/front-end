@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { addItems } from '../actions/itemStateAction';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import styled from 'styled-components';
 
 export const initialValues = {
     listing_name: '',
@@ -37,23 +37,23 @@ const onSubmit = (evt) => {
 }
 
 return (
-    <div>
-        ASDFITEM
-        <form onSubmit={onSubmit} >
+    <StyledFormDiv>
+       <StyledDiv>
+       <StyledForm onSubmit={onSubmit} >
             <label>
-                Item Name
+               <div> Item Name</div>
             <input name="listing_name" value={newItem.name} type="text" onChange={onChange} placeholder='Item Name' 
             />
             </label>
 
             <label>
-                Description
+            <div>Description</div> 
             <input name="listing_description" value={newItem.description} type="text" onChange={onChange} placeholder='Item Description' 
             />
             </label>
 
             <label>
-                Price
+            <div>Price</div> 
             <input name="listing_price" value={newItem.price} type="number" step="0" onChange={onChange} placeholder='Item Price' 
             />
             </label>
@@ -71,11 +71,31 @@ return (
             </select>
             </label>
             <button type='submit' onClick={onSubmit} >Submit</button>
-        </form>
-    </div>
+        </StyledForm>
+       </StyledDiv>
+    </StyledFormDiv>
     );
 };
+const StyledForm = styled.form` 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
 
+  label{margin: .5em;}
+  button{margin: 1em;}
+`
+const StyledFormDiv = styled.div`
+ display: flex;
+ align-content:center;
+ justify-content:center;
+ margin-top:3em;
+`
+const StyledDiv = styled.div`
+   border: 2px solid grey;
+   width:25%;
+
+`
 const mapStateToProps = state => {
     return {
         error: state.errorText
