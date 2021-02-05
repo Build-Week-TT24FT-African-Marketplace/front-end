@@ -66,10 +66,10 @@ export const editItems = (editItem) => (dispatch) => {
 
 
 //delete item on Marketplace Array
-export const deleteItems = () => (dispatch) => {
+export const deleteItems = (item) => (dispatch) => {
         dispatch({type: API_DELETE_START})
         AxiosWithAuth()
-        .delete('listings/:listing_id')
+        .delete(`listings/${item.listing_id}`)
         .then(res => {
             console.log('deleteAction', res.data);
             dispatch({type: API_DELETE_SUCCESS, payload:res.data});
