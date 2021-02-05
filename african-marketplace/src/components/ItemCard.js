@@ -7,12 +7,15 @@ import { deleteItems } from '../actions/itemStateAction'
 const StyledItemCard= styled.div`
 display:flex;
 flex-direction:column;
-border:1px solid black;
+border:1px solid #ffb366;
+font-size:0.80rem;
 justify-content:space-between;
 align-items:center;
-width:20%;
-height:25vh;
-margin:2em;
+width:28%;
+height:150px;
+padding:10px;
+margin:15px;
+margin-bottom:-2px;
 `
 const ItemCard = (props) => {
 
@@ -34,16 +37,16 @@ console.log('*****Itemdetails*****', props);
     return (
         <StyledItemCard>
             <div>
-                A{props.item.listing_name}A
+                {props.item.listing_name}
             </div>
             <div>
-                B{props.item.listing_description}B
+                {props.item.listing_description}
             </div>
             <div>
-                C{props.item.listing_price}C
+                {props.item.listing_price}
             </div>
             <div>
-                D{props.item.marketplace_id}D
+                {props.item.marketplace_id}
             </div>
             {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
             {role == 1 ?

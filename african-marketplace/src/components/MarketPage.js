@@ -44,7 +44,7 @@ const MarketPage = (userItemList) => {
     <>
         
         <MarketStyled>
-          Display Item List Here.
+         
 
             {/* <PrivateRouteList path="/market/user" uList={UserItemList} /> */}
             {/* <Route path="/market" ItemList={ItemList} /> */}

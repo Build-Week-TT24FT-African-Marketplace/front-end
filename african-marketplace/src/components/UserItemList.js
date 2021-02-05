@@ -43,7 +43,7 @@ useEffect(() => {
         <h2>Stock</h2>
       <StyledItemList>
       {/* {Add item button is shown based on role 1 = seller 2 = buyer role is set to 1 by default} */}
-      {role == 1 ? <button onClick={displayForm}> Add Item </button> : null} 
+      <StyledItemNew>{role == 1 ? <button onClick={displayForm}> Add New Item </button> : null} </StyledItemNew>
       {showItemForm && <ItemForm />} 
      
         {isLoading === true ? (<h1>Loading your items!</h1>):
@@ -64,9 +64,9 @@ useEffect(() => {
 const StyledSideBar = styled.div`
 display:flex;
 .bar{
-  width:5%;
-  background-color:grey;
-  height:100vh;
+  /* width:0%;
+  background-color:#ffb366;
+  height:100vh; */
 }
 .container{
   width:90%;
@@ -75,10 +75,22 @@ display:flex;
 const StyledItemList = styled.div`
 display: flex;
 flex-wrap:wrap;
-justify-content:space-around;
+justify-content:center;
 align-items:center;
-margin:1em;
+margin:0px;
 
+`
+
+const StyledItemNew= styled.div`
+display:flex;
+flex-direction:column;
+border:1px solid #ffb366;
+justify-content:space-between;
+align-items:center;
+width:65%;
+height:100%;
+padding:10px;
+margin:0px;
 `
 
 const mapStateToProps = state => {
