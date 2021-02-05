@@ -34,6 +34,22 @@ console.log('*****Itemdetails*****', props);
         deleteItems(itemToDelete);
     };
 
+    const marketName = () => {
+        if(props.item.marketplace_id === 1){
+            return('Kenya')
+        } else if (props.item.marketplace_id === 2){
+            return('Rwanda')
+        } else if (props.item.marketplace_id === 3){
+            return('South Africa')
+        } else if (props.item.marketplace_id === 4){
+            return('Ghana')
+        } else if (props.item.marketplace_id === 5){
+            return('Tanzania')
+        } else if (props.item.marketplace_id === 6){
+            return('Senegal')
+        }
+}
+
     return (
         <StyledItemCard>
             <div>
@@ -46,7 +62,7 @@ console.log('*****Itemdetails*****', props);
                 {props.item.listing_price}
             </div>
             <div>
-                {props.item.marketplace_id}
+                {marketName()}
             </div>
             {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
             {role == 1 ?
