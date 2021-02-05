@@ -92,8 +92,8 @@ const StyledFormDiv = styled.div`
  margin-top:3em;
 `
 const StyledDiv = styled.div`
-   border: 2px solid grey;
-   width:25%;
+   border: 2px solid #ffb366;
+   width:75%;
 
 `
 const mapStateToProps = state => {
