@@ -3,7 +3,7 @@ import axios from "axios";
 // import { useHistory } from "react-router-dom";
 import { editItems } from '../actions/itemStateAction';
 import { connect } from 'react-redux';
-
+import styled from 'styled-components';
 
 export const initialValues = {
   listing_name: '',
@@ -40,8 +40,9 @@ function EditForm(props) {
 }
 
   return (
-  <div>
-    <form onSubmit={onSubmit}>
+  <StyledFormDiv>
+    <StyledDiv>
+    <StyledForm onSubmit={onSubmit}>
       <label htmlFor="listing_name">Item Name</label>
       <input
         name="listing_name"
@@ -74,10 +75,31 @@ function EditForm(props) {
             </select>
       </label>
       <button type='submit' onClick={onSubmit}>Update Item</button>
-    </form>
-  </div>
+    </StyledForm>
+  </StyledDiv>
+  </StyledFormDiv>
   );
 }
+const StyledForm = styled.form` 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+
+  label{margin: .5em;}
+  button{margin: 1em;}
+`
+const StyledFormDiv = styled.div`
+ display: flex;
+ align-content:center;
+ justify-content:center;
+ margin-top:3em;
+`
+const StyledDiv = styled.div`
+   border: 2px solid grey;
+   width:25%;
+
+`
 
 const mapStateToProps = state => {
   return {

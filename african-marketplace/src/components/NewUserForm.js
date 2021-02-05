@@ -35,25 +35,26 @@ const NewUserForm = (props) => {
           <div>Sign Up</div>
         <label>
 
-                Name
+               <div>Name</div>
             <input name="user_first_name" value={newSignup.username} type="text" onChange={onChange}
             />
             </label>
 
             <label>
-                Email
+            <div>Email</div> 
             <input name="user_email" value={newSignup.email} type="email" onChange={onChange}
             />
             </label>
 
             <label>
-                Password
+            <div>Password</div> 
             <input name="user_password" value={newSignup.password} type="text" onChange={onChange}
             />
             </label>
-            {/*radio for buyer/seller select */}
+           <div>
+              {/*radio for buyer/seller select */}
             <label className='radio-btn'>
-            Buyer
+            Seller
             <input
               type="radio"
               name="role"
@@ -64,7 +65,7 @@ const NewUserForm = (props) => {
             </label>
 
             <label className='radio-btn'>
-            Seller
+            Buyer
             <input
               type="radio"
               name="role"
@@ -73,11 +74,9 @@ const NewUserForm = (props) => {
               onChange={onChange}
             />
             </label>
+           </div>
             <button type='submit'>Create new account
             </button>
-
-      
-         
           </StyledForm> 
           </StyledDiv>
           </StyledLoginDiv>
@@ -92,6 +91,7 @@ const StyledForm = styled.form`
   justify-content:space-between;
 
   label{margin: .5em;}
+  button{margin: 1em;}
 `
 const StyledLoginDiv = styled.div`
  display: flex;
