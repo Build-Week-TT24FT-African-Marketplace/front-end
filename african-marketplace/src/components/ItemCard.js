@@ -50,10 +50,10 @@ console.log('*****Itemdetails*****', props);
             </div>
             {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
             {role == 1 ?
-                 <button onClick = {displayEditForm}> Edit Item </button> : null}
+                 <button style={{ fontSize: "1.0rem", color: "#ffb366", backgroundColor:"#7a2828",}} onClick = {displayEditForm}> Edit Item </button> : null}
                  {showEditForm && <EditForm/>}
             {role == 1 ? 
-                <button onClick = {deletebtn}> Delete Item </button> : null}
+                <button style={{ fontSize: "1.0rem", color: "#ffb366", backgroundColor:"#7a2828",}} onClick = {deletebtn}> Delete Item </button> : null}
       </StyledItemCard>
     );
 };
