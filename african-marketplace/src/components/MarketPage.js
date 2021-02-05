@@ -8,41 +8,47 @@ import UserItemList from './UserItemList';
 import styled from "styled-components";
 
 
-const ProjListStyled = styled.div` 
+const MarketStyled = styled.div` 
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-content: space-between;
-
-`;
-
-const ProjStyledA = styled.div` 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-content: space-between;
-  color: ${(pr) => pr.theme.secondaryColor};
+  background-color: #5c5c3d;
+  color: #ffb366;
   font-size: "2rem";
   font-weight: normal;
+
+
 `;
 
-const ProjStyledB = styled.div` 
-  color: ${(pr) => pr.theme.secondaryColor};
-  font-size: "1.5rem";
-  font-weight: normal;
-`;
+// const ProjStyledA = styled.div` 
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-evenly;
+//   align-content: space-between;
+//   color: ${(pr) => pr.theme.secondaryColor};
+//   font-size: "2rem";
+//   font-weight: normal;
+// `;
+
+// const ProjStyledB = styled.div` 
+//   color: ${(pr) => pr.theme.secondaryColor};
+//   font-size: "1.5rem";
+//   font-weight: normal;
+// `;
 
 const MarketPage = (userItemList) => {
 //   const { url } = useRouteMatch();
 
   return (
     <>
-        Display Item List Here.
-        <div>
+        
+        <MarketStyled>
+          Display Item List Here.
             {/* <PrivateRouteList path="/market/user" uList={UserItemList} /> */}
             {/* <Route path="/market" ItemList={ItemList} /> */}
             <UserItemList />
-        </div>
+        </MarketStyled>
     </>
   );
 };
