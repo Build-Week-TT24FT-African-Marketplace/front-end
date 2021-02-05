@@ -70,7 +70,7 @@ return (
                 <option value="6">Senegal</option>
             </select>
             </label>
-            <button type='submit' onClick={onSubmit} >Submit</button>
+            <button type='submit'  style={{ fontSize: "1.0rem", color: "#ffb366", backgroundColor:"#7a2828",}}  onClick={onSubmit} >Submit</button>
         </StyledForm>
        </StyledDiv>
     </StyledFormDiv>

@@ -74,7 +74,7 @@ function EditForm(props) {
                 <option value="6">Senegal</option>
             </select>
       </label>
-      <button type='submit' onClick={onSubmit}>Update Item</button>
+      <button type='submit'  style={{ fontSize: "1.0rem", color: "#ffb366", backgroundColor:"#7a2828",}} onClick={onSubmit}>Update Item</button>
     </StyledForm>
   </StyledDiv>
   </StyledFormDiv>

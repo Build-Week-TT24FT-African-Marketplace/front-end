@@ -43,7 +43,7 @@ useEffect(() => {
         <h2>Stock</h2>
       <StyledItemList>
       {/* {Add item button is shown based on role 1 = seller 2 = buyer role is set to 1 by default} */}
-      <StyledItemNew>{role == 1 ? <button onClick={displayForm}> Add New Item </button> : null} </StyledItemNew>
+      <StyledItemNew>{role == 1 ? <button style={{ fontSize: "1.2rem", color: "#ffb366", backgroundColor:"#7a2828",}} onClick={displayForm}> Add New Item </button> : null} </StyledItemNew>
       {showItemForm && <ItemForm />} 
      
         {isLoading === true ? (<h1>Loading your items!</h1>):
@@ -83,15 +83,18 @@ margin:0px;
 
 const StyledItemNew= styled.div`
 display:flex;
+border-radius: 8px;
 flex-direction:column;
 border:1px solid #ffb366;
 justify-content:space-between;
 align-items:center;
+font-weight: bold;
 width:75%;
 height:100%;
 padding:10px;
 margin:0px;
 `
+
 
 const mapStateToProps = state => {
   return {

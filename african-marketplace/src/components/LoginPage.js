@@ -56,7 +56,7 @@ const LoginPage = (props) => {
                     ></input>
                 </label>
 
-                <button>Login</button>
+                <button style={{ fontSize: "1.2rem", color: "#ffb366", backgroundColor:"#7a2828",}} >Login</button>
             </StyledForm>
 
             </StyledDiv>
