@@ -54,7 +54,7 @@ const NewUserForm = (props) => {
            <div>
               {/*radio for buyer/seller select */}
             <label className='radio-btn'>
-            Buyer
+            Seller
             <input
               type="radio"
               name="role"
@@ -65,7 +65,7 @@ const NewUserForm = (props) => {
             </label>
 
             <label className='radio-btn'>
-            Seller
+            Buyer
             <input
               type="radio"
               name="role"
