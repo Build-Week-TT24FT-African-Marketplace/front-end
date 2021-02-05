@@ -1,10 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
+import { editForm } from './ItemEditForm';
+import { deleteItems } from '../actions/itemStateAction'
 
+const StyledItemCard= styled.div`
+display:flex;
+flex-direction:column;
+border:1px solid black;
+justify-content:space-between;
+align-items:center;
+width:20%;
+height:25vh;
+margin:2em;
+`
 const ItemCard = (props) => {
 
-console.log('*****Itemdeatails*****', props);
+console.log('*****Itemdetails*****', props);
+
+    const role = localStorage.getItem('role')
 
     return (
         <StyledItemCard>
@@ -20,36 +34,21 @@ console.log('*****Itemdeatails*****', props);
             <div>
                 D{props.item.marketplace_id}D
             </div>
-            <div>
-                {/* ****edit/delete button inside this div**** */}
-         {/* Edit and Delete button renders based on role role 1 = seller 2 = buyer role is set to 1 by default
-            { (role === 2 ) ? `${<button> Edit Item </button>}` : null}
-             { (role === 2 ) ? `${<button> Delete Item </button>}` : null} */}
-            </div>
-        </StyledItemCard>
+            {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
+            { (role === 2 ) ?
+                <div>
+                 `${<button onClick = {() => editForm()}> Edit Item </button>}`</div> : null}
+            { (role === 2 ) ? 
+                <div>`${<button onClick = {() => deleteItems()}> Delete Item </button>}`</div> : null}
+          </div>
+      </StyledItemCard>
     )
 }
-const StyledItemCard= styled.div`
-display:flex;
-flex-direction:column;
-border:1px solid black;
-justify-content:space-between;
-align-items:center;
-width:20%;
-height:25vh;
-margin:2em;
-`
 
-export default (ItemCard);
-
-
-
-// const mapStateToProps = state => {
-//     return {
-//         itemState: state.itemState,
-//         isLoading: state.isLoading,
-//         error: state.errorText
-//     }
-//   }
+const mapStateToProps = state => {
+    return {
+        itemState: state.itemState,
+        isLoading: state.isLoading,
+        error: state.errorText
   
-//   export default connect(mapStateToProps, {fetchItems})(UserItemList);
+  export default connect(mapStateToProps, {editForm})(ItemCard);
