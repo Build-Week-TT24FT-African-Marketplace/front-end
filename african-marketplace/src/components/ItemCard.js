@@ -12,7 +12,7 @@ font-size:0.80rem;
 justify-content:space-between;
 align-items:center;
 width:28%;
-height:150px;
+height:auto;
 padding:10px;
 margin:15px;
 margin-bottom:-2px;
