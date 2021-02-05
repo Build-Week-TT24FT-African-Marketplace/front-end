@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
+import { editForm } from './ItemEditForm';
+import { deleteItems } from '../actions/itemStateAction'
 
 const ItemCard = (props) => {
 
 console.log('*****Itemdeatails*****', props);
+
+    const role = localStorage.getItem('role')
 
     return (
         <div>***ITEMCARD*****
@@ -20,29 +24,22 @@ console.log('*****Itemdeatails*****', props);
             <div>
                 D{props.item.marketplace_id}D
             </div>
+            {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
+            { (role === 2 ) ?
+                <div>
+                 `${<button onClick = {() => editForm()}> Edit Item </button>}`</div> : null}
+            { (role === 2 ) ? 
+                <div>`${<button onClick = {() => deleteItems()}> Delete Item </button>}`</div> : null}
         </div>
     )
 }
 
-
-export default (ItemCard);
-
-
-
-/* Edit and Delete button renders based on role role 1 = seller 2 = buyer role is set to 1 by default*/
-// { (role === 2 ) ? `${<button> Edit Item </button>}` : null}
-// { (role === 2 ) ? `${<button> Delete Item </button>}` : null}
-
-
-
-
-
-// const mapStateToProps = state => {
-//     return {
-//         itemState: state.itemState,
-//         isLoading: state.isLoading,
-//         error: state.errorText
-//     }
-//   }
+const mapStateToProps = state => {
+    return {
+        itemState: state.itemState,
+        isLoading: state.isLoading,
+        error: state.errorText
+    }
+  }
   
-//   export default connect(mapStateToProps, {fetchItems})(UserItemList);
+  export default connect(mapStateToProps, {editForm})(ItemCard);
