@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import styled from "styled-components";
 import EditForm  from './ItemEditForm';
@@ -18,7 +18,18 @@ const ItemCard = (props) => {
 
 console.log('*****Itemdetails*****', props);
 
-    const role = localStorage.getItem('role')
+    const [showEditForm, setShowEditForm] = useState(false);
+
+    const role = localStorage.getItem('role');
+    const displayEditForm = () => {
+        setShowEditForm(!showEditForm)
+    };
+
+    const itemToDelete = {listing_id: props.item.listing_id}
+
+    const deletebtn = () => {
+        deleteItems(itemToDelete);
+    };
 
     return (
         <StyledItemCard>
@@ -35,11 +46,11 @@ console.log('*****Itemdetails*****', props);
                 D{props.item.marketplace_id}D
             </div>
             {/* Edit and Delete button renders based on role.  Role 1 = seller 2 = buyer role is set to 1 by default */}
-            { (role === 2 ) ?
-                <div>
-                 `${<button onClick = {() => EditForm()}> Edit Item </button>}`</div> : null}
-            { (role === 2 ) ? 
-                <div>`${<button onClick = {() => deleteItems()}> Delete Item </button>}`</div> : null}
+            {role == 1 ?
+                 <button onClick = {displayEditForm}> Edit Item </button> : null}
+                 {showEditForm && <EditForm/>}
+            {role == 1 ? 
+                <button onClick = {deletebtn}> Delete Item </button> : null}
       </StyledItemCard>
     );
 };
