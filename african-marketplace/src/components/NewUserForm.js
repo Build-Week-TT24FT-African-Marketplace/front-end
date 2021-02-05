@@ -100,7 +100,7 @@ const StyledLoginDiv = styled.div`
  margin-top:3em;
 `
 const StyledDiv = styled.div`
-   border: 2px solid grey;
+   border: 2px solid #ffb366;
    width:25%;
 
 `

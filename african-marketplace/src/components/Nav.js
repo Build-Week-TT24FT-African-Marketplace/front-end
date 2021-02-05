@@ -13,7 +13,7 @@ const NavStyled = styled.nav`
   color:#ffb366;
   h1{
     width:35%;
-    margin-left:-2em;
+    margin-left:5px;
   }
 `;
 
