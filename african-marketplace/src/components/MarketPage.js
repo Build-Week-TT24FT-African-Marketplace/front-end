@@ -21,22 +21,6 @@ const MarketStyled = styled.div`
 
 `;
 
-// const ProjStyledA = styled.div` 
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-evenly;
-//   align-content: space-between;
-//   color: ${(pr) => pr.theme.secondaryColor};
-//   font-size: "2rem";
-//   font-weight: normal;
-// `;
-
-// const ProjStyledB = styled.div` 
-//   color: ${(pr) => pr.theme.secondaryColor};
-//   font-size: "1.5rem";
-//   font-weight: normal;
-// `;
-
 const MarketPage = (userItemList) => {
 //   const { url } = useRouteMatch();
 
