@@ -5,6 +5,7 @@ import LoginPage from './components/LoginPage';
 import MarketPage from './components/MarketPage';
 import NewUserForm from './components/NewUserForm';
 import Nav from './components/Nav'
+import styled from "styled-components";
 // import { axiosWithAuth } from './utils/axiosWithAuth';
 
 
@@ -17,7 +18,6 @@ function App() {
     <Router>
     <Nav/>
     <Switch>
-      
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={NewUserForm} />
       <Route path="/" component={MarketPage} />

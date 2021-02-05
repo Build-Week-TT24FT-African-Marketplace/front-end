@@ -78,10 +78,11 @@ const StyledLoginDiv = styled.div`
  display: flex;
  align-content:center;
  justify-content:center;
+ background-color: #5c5c3d;
  margin-top:3em;
 `
 const StyledDiv = styled.div`
-   border: 2px solid grey;
+   border: 2px solid #ffb366;
    width:25%;
 `
 const mapStateToProps = state => {
