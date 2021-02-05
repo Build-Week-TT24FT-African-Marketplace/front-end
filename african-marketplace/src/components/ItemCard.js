@@ -4,14 +4,24 @@ import styled from "styled-components";
 import { editForm } from './ItemEditForm';
 import { deleteItems } from '../actions/itemStateAction'
 
+const StyledItemCard= styled.div`
+display:flex;
+flex-direction:column;
+border:1px solid black;
+justify-content:space-between;
+align-items:center;
+width:20%;
+height:25vh;
+margin:2em;
+`
 const ItemCard = (props) => {
 
-console.log('*****Itemdeatails*****', props);
+console.log('*****Itemdetails*****', props);
 
     const role = localStorage.getItem('role')
 
     return (
-        <div>***ITEMCARD*****
+        <StyledItemCard>
             <div>
                 A{props.item.listing_name}A
             </div>
@@ -30,7 +40,8 @@ console.log('*****Itemdeatails*****', props);
                  `${<button onClick = {() => editForm()}> Edit Item </button>}`</div> : null}
             { (role === 2 ) ? 
                 <div>`${<button onClick = {() => deleteItems()}> Delete Item </button>}`</div> : null}
-        </div>
+          </div>
+      </StyledItemCard>
     )
 }
 
@@ -39,7 +50,5 @@ const mapStateToProps = state => {
         itemState: state.itemState,
         isLoading: state.isLoading,
         error: state.errorText
-    }
-  }
   
   export default connect(mapStateToProps, {editForm})(ItemCard);

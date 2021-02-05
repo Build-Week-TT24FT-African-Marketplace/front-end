@@ -17,7 +17,6 @@ function App() {
     <Router>
     <Nav/>
     <Switch>
-      
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={NewUserForm} />
       <Route path="/" component={MarketPage} />
